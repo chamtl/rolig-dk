@@ -1,4 +1,4 @@
-﻿# Bail out if we aren't in OOBE
+# Bail out if we aren't in OOBE
 $TypeDef = @" 
 using System;
 using System.Text;
@@ -15,7 +15,14 @@ namespace Api
 }
 "@ 
 Add-Type -TypeDefinition $TypeDef -Language CSharp
-   
+  
+$IsOOBEComplete = $false
+$hr = [Api.Kernel32]::OOBEComplete([ref] $IsOOBEComplete)
+if ($IsOOBEComplete) {
+  Write-Host "Not in OOBE, nothing to do."
+  exit 0
+}
+ 
 # Get device information
 $systemEnclosure = Get-CimInstance -ClassName Win32_SystemEnclosure
 $details = Get-ComputerInfo
