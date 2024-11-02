@@ -30,7 +30,7 @@ Start-Transcript -Path "$env:ProgramData\Microsoft\IntuneManagementExtension\Log
 #Set variables (change to your needs):
 "Set variables"
 #Company name
-$CompanyName = "BlaabjergMDM"
+$CompanyName = "OK a.m.b.a."
 "CompanyName = $CompanyName"
 # The language we want as new default. Language tag can be found here: https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/available-language-packs-for-windows
 $LPlanguage = "da-DK"
